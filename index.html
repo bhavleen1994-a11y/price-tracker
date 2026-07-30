@@ -2,7 +2,7 @@
 {
   "name": "Price Tracker",
   "schemaVersion": 1,
-  "description": "Live price tracker for 9 products across 38 Australian retailer listings. Checks 3x daily — CeraVe lotion, iPhone 17, Kathmandu pants, Dior Sauvage, North Face fleece, Philips Pasta Maker, Real Paw Paw Ointment, Logitech MX Mechanical Mini, MINISFORUM G1 Pro."
+  "description": "Live price tracker for 9 products across 38 Australian retailer listings. Checks 2x daily — CeraVe lotion, iPhone 17, Kathmandu pants, Dior Sauvage, North Face fleece, Philips Pasta Maker, Real Paw Paw Ointment, Logitech MX Mechanical Mini, MINISFORUM G1 Pro."
 }
 </script>
 <html lang="en">
@@ -27,24 +27,19 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; }
-
   a { color: var(--accent2); text-decoration: none; }
   a:hover { text-decoration: underline; }
-
   header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   header h1 { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
   header h1 span { color: var(--accent); }
   .meta { font-size: 12px; color: var(--muted); }
-
   .summary-bar { display: flex; gap: 12px; padding: 12px 20px; background: var(--surface2); border-bottom: 1px solid var(--border); flex-wrap: wrap; }
   .stat { display: flex; flex-direction: column; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; min-width: 90px; }
   .stat-num { font-size: 20px; font-weight: 700; }
   .stat-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
   .stat.drop .stat-num { color: var(--drop); }
   .stat.warn .stat-num { color: var(--warn); }
-
   main { padding: 16px 20px; display: flex; flex-direction: column; gap: 16px; }
-
   .product-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
   .product-header { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
   .product-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
@@ -52,31 +47,22 @@
   .product-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
   .badge { display: inline-flex; align-items: center; gap: 4px; border-radius: 4px; padding: 2px 7px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
   .badge.clothing { background: #1e3a5f; color: #60a5fa; }
-
   .retailer-table { width: 100%; border-collapse: collapse; }
   .retailer-table th { padding: 8px 16px; text-align: left; font-size: 11px; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; background: var(--surface2); }
   .retailer-table td { padding: 10px 16px; border-top: 1px solid var(--border); vertical-align: middle; }
   .retailer-table tr:hover td { background: rgba(108,99,255,0.05); }
-
   .retailer-name { font-weight: 500; display: flex; align-items: center; gap: 6px; }
   .source-star { color: var(--source); font-size: 12px; }
-
   .price { font-weight: 700; font-size: 15px; }
   .price.best { color: var(--drop); }
   .price.unavail { color: var(--muted); font-weight: 400; font-size: 13px; font-style: italic; }
-
   .size-badge { display: inline-flex; align-items: center; gap: 4px; border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 600; }
   .size-badge.ok { background: rgba(0,201,122,0.15); color: var(--drop); }
   .size-badge.no { background: rgba(239,68,68,0.15); color: var(--danger); }
-
+  .size-badge.warn { background: rgba(245,158,11,0.15); color: var(--warn); }
   .note-text { font-size: 11px; color: var(--muted); font-style: italic; }
-
   .drop-pill { display: inline-flex; align-items: center; gap: 4px; background: rgba(0,201,122,0.15); color: var(--drop); border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 600; }
   .up-pill { display: inline-flex; align-items: center; gap: 4px; background: rgba(239,68,68,0.12); color: var(--danger); border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 600; }
-
-  .ts { font-size: 11px; color: var(--muted); }
-  .alert-row { background: rgba(0,201,122,0.05); }
-
   footer { padding: 16px 20px; text-align: center; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); }
 </style>
 </head>
@@ -84,7 +70,7 @@
 
 <header>
   <h1>🛒 Price <span>Tracker</span> — AU</h1>
-  <div class="meta">Last checked: <strong>25 Jul 2026, 5:00 PM AEST</strong> &nbsp;·&nbsp; 9 products &nbsp;·&nbsp; 38 listings</div>
+  <div class="meta">Last checked: <strong>31 Jul 2026, 9:08 AM AEST</strong> &nbsp;·&nbsp; 9 products &nbsp;·&nbsp; 38 listings</div>
 </header>
 
 <div class="summary-bar">
@@ -97,11 +83,11 @@
     <span class="stat-label">Listings</span>
   </div>
   <div class="stat drop">
-    <span class="stat-num">0</span>
+    <span class="stat-num">2</span>
     <span class="stat-label">New Drops</span>
   </div>
   <div class="stat warn">
-    <span class="stat-num">4</span>
+    <span class="stat-num">3</span>
     <span class="stat-label">Unavailable</span>
   </div>
 </div>
@@ -118,23 +104,17 @@
       </div>
     </div>
     <table class="retailer-table">
-      <thead>
-        <tr>
-          <th>Retailer</th>
-          <th>Price</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Retailer</th><th>Price</th><th>Notes</th></tr></thead>
       <tbody>
         <tr>
-          <td><div class="retailer-name"><a href="https://www.chemistwarehouse.com.au/buy/91317/cerave-daily-moisturising-lotion-473ml" target="_blank">Chemist Warehouse</a> <span class="source-star" title="Source retailer">★</span></div></td>
-          <td><span class="price best">$15.59</span></td>
-          <td></td>
+          <td><div class="retailer-name"><a href="https://www.chemistwarehouse.com.au/buy/91317/cerave-daily-moisturising-lotion-473ml" target="_blank">Chemist Warehouse</a> <span class="source-star">★</span></div></td>
+          <td><span class="price best">$22.99</span></td>
+          <td><span class="up-pill">↑ +$7.40</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.priceline.com.au/product/188710/cerave-moisturising-lotion-473ml" target="_blank">Priceline</a></div></td>
           <td><span class="price">$25.99</span></td>
-          <td></td>
+          <td><span class="note-text">Price unverified this run</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.woolworths.com.au/shop/productdetails/1117996087/cerave-moisturising-lotion-473ml" target="_blank">Woolworths</a></div></td>
@@ -143,8 +123,8 @@
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.amazon.com.au/CeraVe-Moisturizing-Lotion-473-Pack/dp/B00YT1IZTO/" target="_blank">Amazon AU</a></div></td>
-          <td><span class="price best">$15.59</span></td>
-          <td></td>
+          <td><span class="price best">$22.99</span></td>
+          <td><span class="up-pill">↑ +$7.40</span></td>
         </tr>
       </tbody>
     </table>
@@ -160,38 +140,32 @@
       </div>
     </div>
     <table class="retailer-table">
-      <thead>
-        <tr>
-          <th>Retailer</th>
-          <th>Price</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Retailer</th><th>Price</th><th>Notes</th></tr></thead>
       <tbody>
         <tr>
-          <td><div class="retailer-name"><a href="https://www.jbhifi.com.au/products/apple-iphone-17-256gb-lavender" target="_blank">JB Hi-Fi</a> <span class="source-star" title="Source retailer">★</span></div></td>
-          <td><span class="price">$1,349</span></td>
-          <td></td>
+          <td><div class="retailer-name"><a href="https://www.jbhifi.com.au/products/apple-iphone-17-256gb-lavender" target="_blank">JB Hi-Fi</a> <span class="source-star">★</span></div></td>
+          <td><span class="price">$1,399</span></td>
+          <td><span class="up-pill">↑ +$50</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.kogan.com/au/buy/apple-iphone-17-256gb-lavendar-esim-only-apple/" target="_blank">Kogan</a></div></td>
-          <td><span class="price best">$1,289</span></td>
-          <td><span class="note-text">Member price · eSIM only</span></td>
+          <td><span class="price best">$1,299</span></td>
+          <td><span class="note-text">Member price · eSIM only <span class="up-pill">↑ +$10</span></span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.harveynorman.com.au/apple-iphone-17-256gb-lavender.html" target="_blank">Harvey Norman</a></div></td>
-          <td><span class="price">$1,347</span></td>
-          <td></td>
+          <td><span class="price">$1,397</span></td>
+          <td><span class="up-pill">↑ +$50</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.officeworks.com.au/shop/officeworks/p/iphone-17-256gb-lavender-ip1725lv" target="_blank">Officeworks</a></div></td>
-          <td><span class="price">$1,347</span></td>
-          <td></td>
+          <td><span class="price">$1,397</span></td>
+          <td><span class="up-pill">↑ +$50</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.amazon.com.au/Apple-iPhone-256-Promotion-Resistance/dp/B0FQF58VG7/" target="_blank">Amazon AU</a></div></td>
-          <td><span class="price">$1,347</span></td>
-          <td></td>
+          <td><span class="price">$1,397</span></td>
+          <td><span class="up-pill">↑ +$50</span></td>
         </tr>
       </tbody>
     </table>
@@ -207,38 +181,31 @@
       </div>
     </div>
     <table class="retailer-table">
-      <thead>
-        <tr>
-          <th>Retailer</th>
-          <th>Price</th>
-          <th>Size 36</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Retailer</th><th>Price</th><th>Size 36</th><th>Notes</th></tr></thead>
       <tbody>
         <tr>
-          <td><div class="retailer-name"><a href="https://www.kathmandu.com.au/products/flight-mns-pants-v2-reg-black-stingray" target="_blank">Kathmandu</a> <span class="source-star" title="Source retailer">★</span></div></td>
+          <td><div class="retailer-name"><a href="https://www.kathmandu.com.au/products/flight-mns-pants-v2-reg-black-stingray" target="_blank">Kathmandu</a> <span class="source-star">★</span></div></td>
           <td><span class="price">$90.98</span></td>
-          <td><span class="size-badge ok">✓ In stock</span></td>
-          <td><span class="note-text">Sale (was $129.98)</span></td>
+          <td><span class="size-badge warn">⚠ Unverified</span></td>
+          <td><span class="note-text">Site blocked this run</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.theiconic.com.au/flight-pants-regular-1733452.html" target="_blank">THE ICONIC</a></div></td>
-          <td><span class="price unavail">$90.98</span></td>
+          <td><span class="price unavail">N/A</span></td>
           <td><span class="size-badge no">✗ OOS</span></td>
           <td><span class="note-text">Item no longer available</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.ebay.com.au/itm/188255253099" target="_blank">eBay (Kathmandu Official)</a></div></td>
-          <td><span class="price best">$64.99</span></td>
-          <td><span class="size-badge ok">✓ In stock</span></td>
-          <td></td>
+          <td><span class="price unavail">N/A</span></td>
+          <td><span class="size-badge no">✗ Gone</span></td>
+          <td><span class="note-text">Listing no longer exists</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.amazon.com.au/Kathmandu-Mens-Flight-Pants-Stingray/dp/B0BF3K3M62/" target="_blank">Amazon AU</a></div></td>
-          <td><span class="price unavail">N/A</span></td>
-          <td><span class="size-badge no">✗ OOS</span></td>
-          <td><span class="note-text">Currently unavailable</span></td>
+          <td><span class="price best">$42.99</span></td>
+          <td><span class="size-badge warn">⚠ Sz 36?</span></td>
+          <td><span class="note-text">Now available — verify size 36 in stock</span></td>
         </tr>
       </tbody>
     </table>
@@ -254,23 +221,17 @@
       </div>
     </div>
     <table class="retailer-table">
-      <thead>
-        <tr>
-          <th>Retailer</th>
-          <th>Price</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Retailer</th><th>Price</th><th>Notes</th></tr></thead>
       <tbody>
         <tr>
-          <td><div class="retailer-name"><a href="https://www.chemistwarehouse.com.au/buy/100180/christian-dior-sauvage-eau-de-parfum-60ml" target="_blank">Chemist Warehouse</a> <span class="source-star" title="Source retailer">★</span></div></td>
+          <td><div class="retailer-name"><a href="https://www.chemistwarehouse.com.au/buy/100180/christian-dior-sauvage-eau-de-parfum-60ml" target="_blank">Chemist Warehouse</a> <span class="source-star">★</span></div></td>
           <td><span class="price best">$139.99</span></td>
           <td></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://scentsperfumes.com.au/products/sauvage-60ml-edp" target="_blank">Scents Perfume</a></div></td>
           <td><span class="price">$159.00</span></td>
-          <td></td>
+          <td><span class="note-text">Price unverified this run</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.myer.com.au/p/sauvage-sauvage-edp?size=60ml" target="_blank">Myer</a></div></td>
@@ -280,7 +241,7 @@
         <tr>
           <td><div class="retailer-name"><a href="https://www.cityperfume.com.au/dior-sauvage-edp-60ml" target="_blank">City Perfume</a></div></td>
           <td><span class="price">$170.00</span></td>
-          <td></td>
+          <td><span class="note-text">Price unverified this run</span></td>
         </tr>
       </tbody>
     </table>
@@ -296,38 +257,31 @@
       </div>
     </div>
     <table class="retailer-table">
-      <thead>
-        <tr>
-          <th>Retailer</th>
-          <th>Price</th>
-          <th>Size M</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Retailer</th><th>Price</th><th>Size M</th><th>Notes</th></tr></thead>
       <tbody>
         <tr>
-          <td><div class="retailer-name"><a href="https://www.anacondastores.com/en-au/p/the-north-face-mens-100-glacier-14-fleece/BP90226348-mid-grey-heather" target="_blank">Anaconda</a> <span class="source-star" title="Source retailer">★</span></div></td>
+          <td><div class="retailer-name"><a href="https://www.anacondastores.com/en-au/p/the-north-face-mens-100-glacier-14-fleece/BP90226348-mid-grey-heather" target="_blank">Anaconda</a> <span class="source-star">★</span></div></td>
           <td><span class="price">$119.99</span></td>
-          <td><span class="size-badge ok">✓ In stock</span></td>
-          <td></td>
+          <td><span class="size-badge warn">⚠ Unverified</span></td>
+          <td><span class="note-text">Site blocked this run</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.wildearth.com.au/buy/the-north-face-glacier-mens-fleece-1-4-zip-jacket/NF0A8D0QCQI-R0S" target="_blank">Wild Earth</a></div></td>
-          <td><span class="price best">$105.95</span></td>
-          <td><span class="size-badge ok">✓ In stock</span></td>
-          <td><span class="note-text">Sale — was $120.00 · ends 1 Jun</span></td>
+          <td><span class="price">$105.95</span></td>
+          <td><span class="size-badge warn">⚠ Unverified</span></td>
+          <td><span class="note-text">Site blocked this run</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.jd-sports.com.au/product/grey-the-north-face-glacier-14-zip-track-top/19699802_jdsportsau/" target="_blank">JD Sports</a></div></td>
           <td><span class="price">$120.00</span></td>
-          <td><span class="size-badge ok">✓ In stock</span></td>
-          <td></td>
+          <td><span class="size-badge warn">⚠ Unverified</span></td>
+          <td><span class="note-text">Site blocked this run</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.amazon.com.au/North-Face-Glacier-Quarter-Pullover/dp/B0DP9K1N55/" target="_blank">Amazon AU</a></div></td>
-          <td><span class="price">$105.95 <span class="up-pill">↑ +$26.75</span></span></td>
-          <td><span class="size-badge no">✗ Temp OOS</span></td>
-          <td><span class="note-text">Price up from $79.20 — temporarily out of stock</span></td>
+          <td><span class="price best">$120.00</span></td>
+          <td><span class="size-badge ok">✓ In stock</span></td>
+          <td><span class="note-text">Back in stock! <span class="up-pill">↑ +$14.05</span></span></td>
         </tr>
       </tbody>
     </table>
@@ -343,33 +297,27 @@
       </div>
     </div>
     <table class="retailer-table">
-      <thead>
-        <tr>
-          <th>Retailer</th>
-          <th>Price</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Retailer</th><th>Price</th><th>Notes</th></tr></thead>
       <tbody>
         <tr>
-          <td><div class="retailer-name"><a href="https://www.amazon.com.au/dp/B0CLVQG8RC" target="_blank">Amazon AU</a> <span class="source-star" title="Source retailer">★</span></div></td>
-          <td><span class="price best">$279.00</span></td>
-          <td></td>
+          <td><div class="retailer-name"><a href="https://www.amazon.com.au/dp/B0CLVQG8RC" target="_blank">Amazon AU</a> <span class="source-star">★</span></div></td>
+          <td><span class="price best">$296.65</span></td>
+          <td><span class="up-pill">↑ +$17.65</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.thegoodguys.com.au/philips-premium-pasta-and-noodle-maker-white-hr266000" target="_blank">The Good Guys</a></div></td>
-          <td><span class="price">$299.00</span></td>
-          <td></td>
+          <td><span class="price">$349.00</span></td>
+          <td><span class="up-pill">↑ +$50.00</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.myer.com.au/p/philips-premium-pasta---noodle-maker-hr2660-00" target="_blank">Myer</a></div></td>
-          <td><span class="price best">$279.20</span></td>
-          <td><span class="note-text">Sale · was $349.00</span></td>
+          <td><span class="price best">$296.65</span></td>
+          <td><span class="note-text">Sale · was $349.00 <span class="up-pill">↑ +$17.45</span></span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.jbhifi.com.au/products/philips-7000-series-pasta-noodle-maker-white" target="_blank">JB Hi-Fi</a></div></td>
-          <td><span class="price">$299.00</span></td>
-          <td></td>
+          <td><span class="price">$349.00</span></td>
+          <td><span class="up-pill">↑ +$50.00</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.kitchenwarehouse.com.au/product/philips-hr2660-00-premium-pasta-and-noodle-maker-white" target="_blank">Kitchen Warehouse</a></div></td>
@@ -378,13 +326,13 @@
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.appliancesonline.com.au/product/philips-7000-series-pasta-noodle-maker-white-hr2660-00/" target="_blank">Appliances Online</a></div></td>
-          <td><span class="price">$300.00</span></td>
-          <td></td>
+          <td><span class="price">$321.00</span></td>
+          <td><span class="up-pill">↑ +$21.00</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.harveynorman.com.au/philips-7000-series-pasta-noodle-maker-white.html" target="_blank">Harvey Norman</a></div></td>
-          <td><span class="price best">$279.00</span></td>
-          <td></td>
+          <td><span class="price">$349.00</span></td>
+          <td><span class="up-pill">↑ +$70.00</span></td>
         </tr>
       </tbody>
     </table>
@@ -400,28 +348,21 @@
       </div>
     </div>
     <table class="retailer-table">
-      <thead>
-        <tr>
-          <th>Retailer</th>
-          <th>Price</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Retailer</th><th>Price</th><th>Notes</th></tr></thead>
       <tbody>
         <tr>
-          <td><div class="retailer-name"><a href="https://www.chemistwarehouse.com.au/buy/77226/real-paw-paw-200g" target="_blank">Chemist Warehouse</a> <span class="source-star" title="Source retailer">★</span></div></td>
-          <td><span class="price best">$10.79</span></td>
-          <td></td>
+          <td><div class="retailer-name"><a href="https://www.chemistwarehouse.com.au/buy/77226/real-paw-paw-200g" target="_blank">Chemist Warehouse</a> <span class="source-star">★</span></div></td>
+          <td><span class="price best">$12.59</span></td>
+          <td><span class="up-pill">↑ +$1.80</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.amazon.com.au/Real-Paw-200g/dp/B07G5B43LD" target="_blank">Amazon AU</a></div></td>
-          <td><span class="price">$40.00</span></td>
-          <td></td>
+          <td><span class="price">$34.99</span></td>
+          <td><span class="drop-pill">↓ −$5.01 (12.5%)</span></td>
         </tr>
       </tbody>
     </table>
   </div>
-
 
   <!-- Logitech MX Mechanical Mini -->
   <div class="product-card">
@@ -433,23 +374,17 @@
       </div>
     </div>
     <table class="retailer-table">
-      <thead>
-        <tr>
-          <th>Retailer</th>
-          <th>Price</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Retailer</th><th>Price</th><th>Notes</th></tr></thead>
       <tbody>
         <tr>
-          <td><div class="retailer-name"><a href="https://www.amazon.com.au/Logitech-MX-Mechanical-Mini-Tactile/dp/B0B2V9WTS2/" target="_blank">Amazon AU</a> <span class="source-star" title="Source retailer">★</span></div></td>
+          <td><div class="retailer-name"><a href="https://www.amazon.com.au/Logitech-MX-Mechanical-Mini-Tactile/dp/B0B2V9WTS2/" target="_blank">Amazon AU</a> <span class="source-star">★</span></div></td>
           <td><span class="price best">$149.00</span></td>
           <td></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.mwave.com.au/product/logitech-mx-mechanical-mini-wireless-illuminated-keyboard-tactile-quiet-ac55628" target="_blank">Mwave</a></div></td>
-          <td><span class="price">$159.00</span></td>
-          <td></td>
+          <td><span class="price">$179.00</span></td>
+          <td><span class="up-pill">↑ +$20.00</span></td>
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.pccasegear.com/products/58826/logitech-mx-mechanical-mini-wireless-keyboard" target="_blank">PC Case Gear</a></div></td>
@@ -478,8 +413,8 @@
         </tr>
         <tr>
           <td><div class="retailer-name"><a href="https://www.logitech.com/en-au/shop/p/mx-mechanical-mini.920-010783" target="_blank">Logitech AU</a></div></td>
-          <td><span class="price">$269.95</span></td>
-          <td></td>
+          <td><span class="price">$229.95</span></td>
+          <td><span class="drop-pill">↓ −$40.00 (14.8%)</span></td>
         </tr>
       </tbody>
     </table>
@@ -495,16 +430,10 @@
       </div>
     </div>
     <table class="retailer-table">
-      <thead>
-        <tr>
-          <th>Retailer</th>
-          <th>Price</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Retailer</th><th>Price</th><th>Notes</th></tr></thead>
       <tbody>
         <tr>
-          <td><div class="retailer-name"><a href="https://www.amazon.com.au/MINISFORUM-G1-Pro-GeForce-Performance/dp/B0GHYJJYQS/" target="_blank">Amazon AU</a> <span class="source-star" title="Source retailer">★</span></div></td>
+          <td><div class="retailer-name"><a href="https://www.amazon.com.au/MINISFORUM-G1-Pro-GeForce-Performance/dp/B0GHYJJYQS/" target="_blank">Amazon AU</a> <span class="source-star">★</span></div></td>
           <td><span class="price best">$2,309.00</span></td>
           <td><span class="note-text">Sold by MINISFORUM Store</span></td>
         </tr>
@@ -515,7 +444,7 @@
 </main>
 
 <footer>
-  Price Tracker AU &nbsp;·&nbsp; Checks 3× daily &nbsp;·&nbsp; ★ = source retailer &nbsp;·&nbsp; Prices in AUD
+  Price Tracker AU &nbsp;·&nbsp; Checks 2× daily &nbsp;·&nbsp; ★ = source retailer &nbsp;·&nbsp; Prices in AUD
 </footer>
 
 </body>
